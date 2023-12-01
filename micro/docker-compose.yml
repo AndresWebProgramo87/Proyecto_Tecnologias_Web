@@ -1,0 +1,13 @@
+version : "3.7"
+services :
+  proyectos-micreo :
+    container_name : proyectos-micreo
+    image : proyectos-micreo:v1
+    build :
+      context : .
+    ports :
+      - "4002:4002"
+    networks : 
+      - proyectos-app
+networks :
+  proyectos-app :
