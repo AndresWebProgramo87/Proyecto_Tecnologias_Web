@@ -1,13 +1,48 @@
 version : "3.7"
 services :
-  proyectos-micreo :
-    container_name : proyectos-micreo
-    image : proyectos-micreo:v1
+  proyectos-micros :
+    container_name : proyectos-micros
+    image : proyectos-micros:v1
     build :
       context : .
     ports :
-      - "4002:4002"
+      - "4002"
     networks : 
       - proyectos-app
+
+  proyectos-micros-2 :
+    container_name : proyectos-micros-2
+    image : proyectos-micros:v1
+    ports :
+      - "4002"
+    networks : 
+      - proyectos-app
+
+  proyectos-micros-3 :
+    container_name : proyectos-micros-3
+    image : proyectos-micros:v1
+    ports :
+      - "4002"
+    networks : 
+      - proyectos-app
+
+  proyectos-micros-4 :
+    container_name : proyectos-micros-4
+    image : proyectos-micros:v1
+    ports :
+      - "4002"
+    networks : 
+      - proyectos-app        
+  
+  loader-balancer:
+    container_name : loader-balancer
+    image: loader-balancer:v1
+    build :
+      context : ./loader-balancer
+    ports:
+      - "4003:80"
+    networks : 
+      - proyectos-app
+
 networks :
   proyectos-app :

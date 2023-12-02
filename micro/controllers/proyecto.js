@@ -9,6 +9,7 @@ const Universidad = require('../models/universidad');
 //crea
 
 const createProyecto = async (req = request, res = response) => {
+    console.log('calling createProyecto!')
     try{
         const data = req.body
         const { cliente, tipoProyecto, etapa, universidad } = data
@@ -61,6 +62,7 @@ const createProyecto = async (req = request, res = response) => {
 //Consultar todos
 
 const getProyectos = async (req, res = response) => {
+    console.log('calling getProyectos!')
     try{
         const proyectosBD = await Proyecto.find()
         .populate({
@@ -88,6 +90,7 @@ const getProyectos = async (req, res = response) => {
 
 
 const updateProyectoPorId = async (req = request, res = response) => {
+    console.log('calling updateProyectoPorId!')
     try {
         const { id } = req.params
         const { numero, titulo, fechaInicio, fechaEntrega, valor, fechaCreacion, tipoProyecto, cliente, etapa, universidad } = req.body
@@ -114,6 +117,7 @@ const updateProyectoPorId = async (req = request, res = response) => {
 
 // Eliminar 
 const deleteProyectoId = async (req = request, res = response) => {
+    console.log('calling deleteProyectoId!')
     const proyectoId = req.params.id;
 
     try {
